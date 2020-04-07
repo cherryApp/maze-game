@@ -35,9 +35,17 @@ Mazing.prototype.setMessage = function(text) {
     this.mazeMessage.innerHTML = text;
     this.mazeScore.innerHTML = this.heroScore;
 };
-Mazing.prototype.heroTakeTreasure = function() {
+Mazing.prototype.heroTakeTreasure = function(symbol) {
+    let value = symbol.replace(/\"/g, '').codePointAt(0);
+    switch( value ) {
+        case 127812: value = 15; break;
+        case 127873: value = 20; break;
+        case 128142: value = 25; break;
+        default: value = 10;
+    }
+
     this.maze[this.heroPos].classList.remove("nubbin");
-    this.heroScore += 10;
+    this.heroScore += value;
     this.setMessage("yay, treasure!");
 };
 Mazing.prototype.heroTakeKey = function() {
@@ -80,11 +88,14 @@ Mazing.prototype.tryMoveHero = function(pos) {
             return;
         }
     }
+
+    const beforeHero = window.getComputedStyle(this.maze[pos], ':after').content;
     this.maze[this.heroPos].classList.remove("hero");
     this.maze[pos].classList.add("hero");
+    this.maze[pos].classList.add('visited');
     this.heroPos = pos;
     if (nextStep.match(/nubbin/)) {
-        this.heroTakeTreasure();
+        this.heroTakeTreasure(beforeHero);
         return;
     }
     if (nextStep.match(/key/)) {

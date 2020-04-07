@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div style="text-align: center;">
+        <div id="maze_container">
+        </div>
+        <div id="maze_output">
+            <div id="maze_score"><!-- --></div>
+            <div id="maze_message"><!-- --></div>
+        </div>
+        </div>
+        
+
+    <script src="js/game.js"></script>
+    <script src="js/fields.js"></script>
+    <script>
+        const field = fields[Math.floor(Math.random()*fields.length)];
+        document.querySelector('#maze_container').innerHTML = field;
+        window.addEventListener( 'DOMContentLoaded', function(e) {
+            const maze = new Mazing();
+        }, false );
+    </script>
+</body>
+</html>
