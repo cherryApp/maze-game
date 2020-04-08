@@ -38,7 +38,19 @@
 	content: "\1F6AA"
 }
 
-#maze div div.nubbin::after {
+#maze div.nubbin::after {
+	content: "\1F381"
+}
+
+#maze div.nubbin:nth-of-type(5n)::after {
+	content: "\1F48E"
+}
+
+#maze div.nubbin:nth-of-type(3n)::after {
+	content: "\1F33B"
+}
+
+/* #maze div div.nubbin::after {
 	content: "\1F33C"
 }
 
@@ -56,10 +68,16 @@
 
 #maze div.nubbin:nth-of-type(13n)::after {
 	content: "\1F381"
-}
+} */
 
 #maze div.hero::after {
-	content: "\1F6B6"!important
+	/* content: "\1F6B6"!important */
+	content: "\1F920"!important
+}
+
+#maze div.hero.warning::after {
+	/* content: "\1F6B6"!important */
+	content: "\1F61E"!important
 }
 
 #maze.face-right div.hero::after {

@@ -92,6 +92,12 @@ Mazing.prototype.tryMoveHero = function(pos) {
     const beforeHero = window.getComputedStyle(this.maze[pos], ':after').content;
     this.maze[this.heroPos].classList.remove("hero");
     this.maze[pos].classList.add("hero");
+    if (this.heroScore < 50) {
+        this.maze[pos].classList.add('warning');
+    } else {
+        this.maze[pos].classList.remove('warning');
+    }
+
     this.maze[pos].classList.add('visited');
     this.heroPos = pos;
     if (nextStep.match(/nubbin/)) {
