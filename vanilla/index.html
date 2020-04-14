@@ -4,26 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div style="text-align: center;">
-        <button>Megnézek valakit</button><button>Részletes leírás</button><button>Praktikus tanácsok</button><button>Vágjunk bele!</button>
         <br><br>
         <div id="maze_container">
+            <div class="chooser-group">
+                <div class="row">
+                    <button>
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <span>Megnézek Valakit</span>
+                    </button>
+                    <button>
+                        <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+                        <span>Praktikus tanácsok</span>
+                    </button>
+                </div>
+                <div class="row">
+                    <button>
+                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                        <span>Részletes leírás</span>
+                    </button>
+                    <button>
+                        <i class="fa fa-plug" aria-hidden="true"></i>
+                        <span>Vágjunk bele!</span>
+                    </button>
+                </div>
+            </div>
         </div>
         <div id="maze_output">
             <div id="maze_score"><!-- --></div>
             <div id="maze_message"><!-- --></div>
         </div>
-        </div>
+    </div>
         
 
     <script src="js/game.js"></script>
     <script src="js/fields.js"></script>
     <script>
         const field = fieldsSmall[Math.floor(Math.random()*fieldsSmall.length)];
-        document.querySelector('#maze_container').innerHTML = field;
+        const game = document.createElement('div');
+        game.innerHTML = field;
+        document.querySelector('#maze_container').appendChild(game);
         window.addEventListener( 'DOMContentLoaded', function(e) {
             const maze = new Mazing();
         }, false );
