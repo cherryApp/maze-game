@@ -1,44 +1,78 @@
-<div style="text-align: center;">
-  <br><br>
+<div class="mt-1" style="text-align: center;">
   <div id="maze_container">
-    <div class="row">
-      <div class="col-6">
-        <button>
-          <i
-            class="fa fa-eye"
-            aria-hidden="true"
-          ></i>
-          <span>Megnézek Valakit</span>
-        </button>
-      </div>
-      <div class="col-6">
-        <button>
-          <i
-            class="fa fa-lightbulb-o"
-            aria-hidden="true"
-          ></i>
-          <span>Praktikus tanácsok</span>
-        </button>
-      </div>
+    <div *ngIf="step === 2" class="step">
+      <h3>
+        Nézd meg ezt a rövid videót:
+      </h3>
+      <video style="width: 75%;" src="https://nettuts-object-space.fra1.digitaloceanspaces.com/public-video/maze-game.mp4" controls></video>
+      <button (click)="step = 5" class="btn btn-primary btn-block">
+        tovább
+      </button>
     </div>
-    <div class="row">
-      <div class="col-6">
-        <button>
-          <i
-            class="fa fa-file-text-o"
-            aria-hidden="true"
-          ></i>
-          <span>Részletes leírás</span>
-        </button>
+    <div *ngIf="step === 3" class="step">
+      <h3>
+        A játék leírása:
+      </h3>
+      <p>A játék célja, hogy beérj az ajtón.</p>
+      <p>Az ajtót akkor tudod kinyitni, ha megszerzed előbb a kulcsot.</p>
+      <p>Jutalmak: a virágok 10, a csomagok 20 és a gyémántok 25 lépést adnak.</p>
+      <p>Szörnyek: vigyázz a kígyóval és a krokodillal, mert levesznek a lépésekből.</p>
+      <button (click)="step = 5" class="btn btn-primary btn-block">
+        tovább
+      </button>
+    </div>
+    <div *ngIf="step === 4" class="step">
+      <h3>
+        Röviden a lényeg:
+      </h3>
+      <p>Találd meg az utat az ajtóhoz, szerezd meg a kulcsot, kerüld a
+        szörnyeket és vegyél fel minél több jutalmat.
+      </p>
+      <button (click)="step = 5" class="btn btn-primary btn-block">
+        tovább
+      </button>
+    </div>
+
+    <div *ngIf="step === 0" class="chooser-group">
+      <div class="row">
+        <div class="col-6">
+          <button (click)="onChoose(2)">
+            <i
+              class="fa fa-eye"
+              aria-hidden="true"
+            ></i>
+            <span>Megnézek Valakit</span>
+          </button>
+        </div>
+        <div class="col-6">
+          <button (click)="onChoose(4)">
+            <i
+              class="fa fa-lightbulb-o"
+              aria-hidden="true"
+            ></i>
+            <span>Gyakorlati tanácsok</span>
+          </button>
+        </div>
       </div>
-      <div class="col-6">
-        <button>
-          <i
-            class="fa fa-plug"
-            aria-hidden="true"
-          ></i>
-          <span>Vágjunk bele!</span>
-        </button>
+      <div class="row">
+        <div class="col-6">
+          <button (click)="onChoose(3)">
+            <i
+              class="fa fa-file-text-o"
+              aria-hidden="true"
+            ></i>
+            <span>Részletes leírás</span>
+          </button>
+        </div>
+        <div class="col-6">
+          <button (click)="onChoose(1)">
+            <i
+              class="fa fa-plug"
+              aria-hidden="true"
+            ></i>
+            <span>Vágjunk bele!</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -51,12 +85,3 @@
     </div>
   </div>
 </div>
-<script>
-  const field = fieldsSmall[Math.floor(Math.random() * fieldsSmall.length)];
-  const game = document.createElement('div');
-  game.innerHTML = field;
-  console.log(game);
-  document.querySelector('#maze_container').appendChild(game);
-  const maze = new Mazing();
-
-</script>
