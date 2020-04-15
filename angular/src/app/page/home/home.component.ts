@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Logic } from 'src/assets/js/logic';
+
+declare const Logic: any;
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,13 @@ import { Logic } from 'src/assets/js/logic';
 })
 export class HomeComponent implements OnInit {
 
-  logic: Logic = new Logic();
+  logic;
   step = 0;
   choosed: number;
 
-  constructor() {}
+  constructor() {
+    this.logic = new Logic();
+  }
 
   ngOnInit(): void {
     this.logic.start();
