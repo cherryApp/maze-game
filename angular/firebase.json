@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "learning-maze",
+    "public": "dist\\angular",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

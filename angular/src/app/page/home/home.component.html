@@ -1,0 +1,62 @@
+<div style="text-align: center;">
+  <br><br>
+  <div id="maze_container">
+    <div class="row">
+      <div class="col-6">
+        <button>
+          <i
+            class="fa fa-eye"
+            aria-hidden="true"
+          ></i>
+          <span>Megnézek Valakit</span>
+        </button>
+      </div>
+      <div class="col-6">
+        <button>
+          <i
+            class="fa fa-lightbulb-o"
+            aria-hidden="true"
+          ></i>
+          <span>Praktikus tanácsok</span>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button>
+          <i
+            class="fa fa-file-text-o"
+            aria-hidden="true"
+          ></i>
+          <span>Részletes leírás</span>
+        </button>
+      </div>
+      <div class="col-6">
+        <button>
+          <i
+            class="fa fa-plug"
+            aria-hidden="true"
+          ></i>
+          <span>Vágjunk bele!</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="maze_output">
+    <div id="maze_score">
+      <!-- -->
+    </div>
+    <div id="maze_message">
+      <!-- -->
+    </div>
+  </div>
+</div>
+<script>
+  const field = fieldsSmall[Math.floor(Math.random() * fieldsSmall.length)];
+  const game = document.createElement('div');
+  game.innerHTML = field;
+  console.log(game);
+  document.querySelector('#maze_container').appendChild(game);
+  const maze = new Mazing();
+
+</script>
